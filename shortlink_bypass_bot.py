@@ -3,9 +3,9 @@ import requests
 from pyrogram import Client, filters
 
 # Replace with your bot token from BotFather
-API_ID = "your_api_id"  # Get from https://my.telegram.org
-API_HASH = "your_api_hash"  # Get from https://my.telegram.org
-BOT_TOKEN = "your_bot_token"  # Get from BotFather
+API_ID = "23342871"  # Get from https://my.telegram.org
+API_HASH = "7405511dc0b47d778640f913cb46a65a"  # Get from https://my.telegram.org
+BOT_TOKEN = "7201537576:AAEPVBkJ4fGqLCBItjFDUcfVbZAMIeCzhwU"  # Get from BotFather
 
 # Initialize the Pyrogram Client
 app = Client("shortlink_bypass_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
