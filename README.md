@@ -1,18 +1,15 @@
-# Telegram Short Link Bypass Bot
+# Telegram Media Scraper Bot
 
-This is a Telegram bot that bypasses short links and provides the direct URL.
+This bot scrapes media from file store bot links and delivers the media directly to the user via Telegram.
 
-## How to Use
+## **Features**
+- Accepts file store bot links via DM.
+- Decodes and retrieves file information.
+- Downloads the media and sends it back to the user.
 
-1. Start the bot by sending `/start`.
-2. Send a short link (e.g., `https://bit.ly/xyz`).
-3. The bot will reply with the direct link.
+## **Setup Instructions**
 
-## Deployment
-
-Deploy this bot on Koyeb or Heroku by following the instructions in the repository.
-
-## Requirements
-
-- Python 3.x
-- Libraries: `pyrogram`, `requests`
+### **1. Clone the Repository**
+```bash
+git clone <your-repo-link>
+cd telegram-bot-file-scraper
