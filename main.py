@@ -5,12 +5,25 @@ import base64
 import requests
 from telegram import Update, InputFile
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
+from flask import Flask
+import threading
 
 # Telegram Bot Token from environment variable
 BOT_TOKEN = "7500719459:AAF7XpWQb6mnVFV7ZhU-OFEBMtsrTc8M5Is"
 
 # Create the Application
 app = ApplicationBuilder().token(BOT_TOKEN).build()
+
+# Flask app for Koyeb health check
+flask_app = Flask(__name__)
+
+@flask_app.route("/health")
+def health_check():
+    return "OK", 200
+
+# Start the Flask server in a separate thread
+def start_flask_app():
+    flask_app.run(host="0.0.0.0", port=8080)
 
 # Handler to start the bot
 async def start(update: Update, context):
@@ -72,4 +85,9 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
 if __name__ == '__main__':
     print("Starting bot...")
+
+    # Start the Flask app for health check
+    threading.Thread(target=start_flask_app).start()
+
+    # Start the Telegram bot
     app.run_polling()
